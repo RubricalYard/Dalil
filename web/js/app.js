@@ -2,8 +2,8 @@
 
 // ---------- constants and shared state ----------
 
-const COUNTDOWN_SECONDS = 10;
-const RECORD_MS = 7000;
+const COUNTDOWN_SECONDS = 3;
+const RECORD_MS = 4000;
 const MIN_FRAMES = 5;
 const PARAM_LABELS = {
   handshape: 'Handshape',
