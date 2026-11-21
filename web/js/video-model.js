@@ -1,7 +1,9 @@
-
+// Builds a sign model from a video file. The browser plays the chosen clip, keeps one side of
+// the frame (the Emirati signer in a side-by-side video), runs MediaPipe Hands on sampled
+// frames and returns landmark frames in the same shape as the webcam recording.
 const VIDEO_SAMPLE_FPS = 15;
-const VIDEO_MAX_FRAMES = 150;   
-const VIDEO_CROP_SCALE = 2;     
+const VIDEO_MAX_FRAMES = 150;         // same cap as the webcam recording
+const VIDEO_CROP_SCALE = 2;           // enlarge the crop so small hands are easier to track
 
 let videoHands = null;
 let pendingResolve = null;
@@ -48,6 +50,10 @@ function toFullFrame(landmarks, side) {
   });
 }
 
+/**
+ * Extracts landmark frames from [start, end] seconds of the loaded video.
+ * onProgress(done, total) is called after each sampled frame.
+ */
 async function extractFramesFromVideo(video, { start, end, side }, onProgress) {
   if (!video.videoWidth || !video.videoHeight) {
     throw new Error('The video has not loaded yet. Wait for it to load, then try again.');
