@@ -1,4 +1,3 @@
-package dalil;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
