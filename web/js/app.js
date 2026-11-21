@@ -688,34 +688,21 @@ function startReferenceOverlay(video, canvas) {
       }
     });
   });
-
- const processFrame = async () => {
-  if (stopped || video.readyState < 2 || busy) return;
-
-  busy = true;
-
-  try {
-    await tracker.send({ image: video });
-  } catch (_) {
-    // Ignore frames that cannot be processed.
-  } finally {
-    busy = false;
-  }
-};
-
-const tick = () => {
-  if (stopped) return;
-
-  if (!video.paused && !video.ended) {
-    processFrame();
-  }
-
-  raf = requestAnimationFrame(tick);
-};
-
-video.addEventListener('loadedmetadata', resize);
-video.addEventListener('seeked', processFrame);
-
+  const tick = async () => {
+    if (stopped) return;
+    if (!video.paused && !video.ended && video.readyState >= 2 && !busy) {
+      busy = true;
+      try { await tracker.send({ image: video }); } catch (_) { /* skip a frame the tracker cannot process */ }
+      busy = false;
+    }
+    raf = requestAnimationFrame(tick);
+  };
+  video.addEventListener('loadedmetadata', resize);
+  video.addEventListener('seeked', async () => {
+    if (!stopped && video.readyState >= 2 && !busy) {
+      busy = true; try { await tracker.send({ image: video }); } catch (_) {} busy = false;
+    }
+  });
   raf = requestAnimationFrame(tick);
   referenceDemoCleanup = () => {
     stopped = true; cancelAnimationFrame(raf); video.pause(); tracker.close();
