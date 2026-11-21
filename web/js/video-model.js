@@ -1,9 +1,9 @@
-// Builds a sign model from a video file. The browser plays the chosen clip, keeps one side of
-// the frame (the Emirati signer in a side-by-side video), runs MediaPipe Hands on sampled
-// frames and returns landmark frames in the same shape as the webcam recording.
+// Builds a sign model from a video file. The browser plays the chosen clip, runs MediaPipe Hands
+// on sampled frames of the full picture and returns landmark frames in the same shape as the
+// webcam recording. Use a clip with one signer in view.
 const VIDEO_SAMPLE_FPS = 15;
 const VIDEO_MAX_FRAMES = 150;         // same cap as the webcam recording
-const VIDEO_CROP_SCALE = 2;           // enlarge the crop so small hands are easier to track
+const VIDEO_CROP_SCALE = 2;           // enlarge the frame so small hands are easier to track
 
 let videoHands = null;
 let pendingResolve = null;
@@ -43,26 +43,22 @@ function seekVideo(video, time) {
   });
 }
 
-function toFullFrame(landmarks, side) {
-  return landmarks.map((p) => {
-    const x = side === 'right' ? 0.5 + p.x * 0.5 : p.x;
-    return [x, p.y, p.z];
-  });
+function toFullFrame(landmarks) {
+  return landmarks.map((p) => [p.x, p.y, p.z]);
 }
 
 /**
  * Extracts landmark frames from [start, end] seconds of the loaded video.
  * onProgress(done, total) is called after each sampled frame.
  */
-async function extractFramesFromVideo(video, { start, end, side }, onProgress) {
+async function extractFramesFromVideo(video, { start, end }, onProgress) {
   if (!video.videoWidth || !video.videoHeight) {
     throw new Error('The video has not loaded yet. Wait for it to load, then try again.');
   }
   if (!(end > start)) throw new Error('The end time must be after the start time.');
   const hands = getVideoHands();
 
-  const srcW = side === 'right' ? video.videoWidth / 2 : video.videoWidth;
-  const srcX = side === 'right' ? video.videoWidth / 2 : 0;
+  const srcW = video.videoWidth;
   const canvas = document.createElement('canvas');
   canvas.width = Math.round(srcW * VIDEO_CROP_SCALE);
   canvas.height = Math.round(video.videoHeight * VIDEO_CROP_SCALE);
@@ -74,12 +70,12 @@ async function extractFramesFromVideo(video, { start, end, side }, onProgress) {
   for (let i = 0; i < total; i++) {
     const t = start + ((end - start) * i) / total;
     await seekVideo(video, t);
-    ctx.drawImage(video, srcX, 0, srcW, video.videoHeight, 0, 0, canvas.width, canvas.height);
+    ctx.drawImage(video, 0, 0, srcW, video.videoHeight, 0, 0, canvas.width, canvas.height);
     const resultPromise = new Promise((resolve) => { pendingResolve = resolve; });
     await hands.send({ image: canvas });
     const results = await resultPromise;
     const landmarks = (results.multiHandLandmarks || [])[0];
-    if (landmarks) frames.push(toFullFrame(landmarks, side));
+    if (landmarks) frames.push(toFullFrame(landmarks));
     if (onProgress) onProgress(i + 1, total);
   }
   return frames;
