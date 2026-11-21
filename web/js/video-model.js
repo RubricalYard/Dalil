@@ -1,0 +1,80 @@
+
+const VIDEO_SAMPLE_FPS = 15;
+const VIDEO_MAX_FRAMES = 150;   
+const VIDEO_CROP_SCALE = 2;     
+
+let videoHands = null;
+let pendingResolve = null;
+
+function getVideoHands() {
+  if (videoHands) return videoHands;
+  if (typeof Hands === 'undefined') {
+    throw new Error('The hand-tracking library did not load. Check your internet connection and reload the page.');
+  }
+  videoHands = new Hands({ locateFile: (file) => `${HAND_MODEL_CDN}/${file}` });
+  videoHands.setOptions({
+    maxNumHands: 1,
+    modelComplexity: 1,
+    minDetectionConfidence: 0.5,
+    minTrackingConfidence: 0.5,
+  });
+  videoHands.onResults((results) => {
+    if (pendingResolve) {
+      const resolve = pendingResolve;
+      pendingResolve = null;
+      resolve(results);
+    }
+  });
+  return videoHands;
+}
+
+function seekVideo(video, time) {
+  return new Promise((resolve, reject) => {
+    const timer = setTimeout(() => reject(new Error('The video stopped responding while reading frames.')), 5000);
+    const done = () => {
+      clearTimeout(timer);
+      video.removeEventListener('seeked', done);
+      resolve();
+    };
+    video.addEventListener('seeked', done);
+    video.currentTime = time;
+  });
+}
+
+function toFullFrame(landmarks, side) {
+  return landmarks.map((p) => {
+    const x = side === 'right' ? 0.5 + p.x * 0.5 : p.x;
+    return [x, p.y, p.z];
+  });
+}
+
+async function extractFramesFromVideo(video, { start, end, side }, onProgress) {
+  if (!video.videoWidth || !video.videoHeight) {
+    throw new Error('The video has not loaded yet. Wait for it to load, then try again.');
+  }
+  if (!(end > start)) throw new Error('The end time must be after the start time.');
+  const hands = getVideoHands();
+
+  const srcW = side === 'right' ? video.videoWidth / 2 : video.videoWidth;
+  const srcX = side === 'right' ? video.videoWidth / 2 : 0;
+  const canvas = document.createElement('canvas');
+  canvas.width = Math.round(srcW * VIDEO_CROP_SCALE);
+  canvas.height = Math.round(video.videoHeight * VIDEO_CROP_SCALE);
+  const ctx = canvas.getContext('2d');
+
+  const total = Math.min(VIDEO_MAX_FRAMES, Math.max(1, Math.floor((end - start) * VIDEO_SAMPLE_FPS)));
+  const frames = [];
+  video.pause();
+  for (let i = 0; i < total; i++) {
+    const t = start + ((end - start) * i) / total;
+    await seekVideo(video, t);
+    ctx.drawImage(video, srcX, 0, srcW, video.videoHeight, 0, 0, canvas.width, canvas.height);
+    const resultPromise = new Promise((resolve) => { pendingResolve = resolve; });
+    await hands.send({ image: canvas });
+    const results = await resultPromise;
+    const landmarks = (results.multiHandLandmarks || [])[0];
+    if (landmarks) frames.push(toFullFrame(landmarks, side));
+    if (onProgress) onProgress(i + 1, total);
+  }
+  return frames;
+}
