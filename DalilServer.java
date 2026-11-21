@@ -1,5 +1,3 @@
-
-
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.Base64;
@@ -77,12 +75,16 @@ public final class DalilServer {
             if (path.startsWith("/api/")) {
                 route(ex, path.substring("/api/".length()));
             } else {
+                serveStatic(ex, path);
             }
         } catch (ApiException e) {
+            sendJson(ex, e.status, Map.of("error", e.getMessage()));
         } catch (IllegalArgumentException e) {
+            sendJson(ex, 400, Map.of("error", e.getMessage()));
         } catch (Exception e) {
             System.err.println("Unexpected error: " + e);
             e.printStackTrace();
+            sendJson(ex, 500, Map.of("error", "Something went wrong on the server."));
         } finally {
             ex.close();
         }
@@ -97,11 +99,14 @@ public final class DalilServer {
             for (SignCatalogue.Sign s : catalogue.all()) {
                 list.add(signView(s, false));
             }
+            sendJson(ex, 200, Map.of("signs", list));
 
         } else if (parts.length == 2 && parts[0].equals("signs") && method.equals("GET")) {
+            sendJson(ex, 200, signView(requireSign(parts[1]), true));
 
         } else if (parts.length == 2 && parts[0].equals("instructor") && parts[1].equals("check") && method.equals("GET")) {
             requireInstructor(ex);
+            sendJson(ex, 200, Map.of("ok", true));
 
         } else if (parts.length == 2 && parts[0].equals("reference-videos") && method.equals("GET")) {
             SignCatalogue.Sign sign = requireSign(parts[1]);
@@ -130,6 +135,7 @@ public final class DalilServer {
             } else {
                 references.deleteClip(sign.id());
             }
+            sendJson(ex, 200, Map.of("ok", true, "signId", sign.id()));
 
         } else if (parts.length == 2 && parts[0].equals("references") && method.equals("POST")) {
             // Instructor recording. Stores summary features and one key frame.
@@ -138,6 +144,7 @@ public final class DalilServer {
             Map<String, Object> body = readJsonObject(ex);
             Features f = SignAnalyzer.extract(parseFrames(body.get("frames")));
             references.put(s.id(), f);
+            sendJson(ex, 200, Map.of("ok", true, "signId", s.id()));
 
         } else if (parts.length == 1 && parts[0].equals("attempts") && method.equals("POST")) {
             Map<String, Object> body = readJsonObject(ex);
@@ -148,12 +155,15 @@ public final class DalilServer {
             Features att = SignAnalyzer.extract(parseFrames(body.get("frames")));
             SignAnalyzer.AttemptResult result = SignAnalyzer.compare(ref, att);
             progress.addAttempt(learnerId, s.id(), result);
+            sendJson(ex, 200, result.toMap());
 
         } else if (parts.length == 2 && parts[0].equals("progress") && method.equals("GET")) {
             String learnerId = requireLearner(parts[1]);
+            sendJson(ex, 200, progress.summary(learnerId, catalogue));
 
         } else if (parts.length == 2 && parts[0].equals("learners") && method.equals("DELETE")) {
             String learnerId = requireLearner(parts[1]);
+            sendJson(ex, 200, Map.of("deleted", progress.delete(learnerId)));
 
         } else {
             throw new ApiException(404, "Not found");
@@ -280,7 +290,34 @@ public final class DalilServer {
         }
     }
 
- 
+    private static void sendJson(HttpExchange ex, int status, Object body) throws IOException {
+        byte[] bytes = Json.stringify(body).getBytes(StandardCharsets.UTF_8);
+        ex.getResponseHeaders().set("Content-Type", "application/json; charset=utf-8");
+        ex.getResponseHeaders().set("X-Content-Type-Options", "nosniff");
+        ex.sendResponseHeaders(status, bytes.length);
+        try (OutputStream out = ex.getResponseBody()) {
+            out.write(bytes);
+        }
+    }
+
+    private void serveStatic(HttpExchange ex, String path) throws IOException {
+        if (!ex.getRequestMethod().equals("GET")) {
+            throw new ApiException(405, "Method not allowed");
+        }
+        String rel = path.equals("/") ? "index.html" : path.substring(1);
+        Path file = webRoot.resolve(rel).normalize();
+        if (!file.startsWith(webRoot) || !Files.isRegularFile(file)) {
+            throw new ApiException(404, "Not found");
+        }
+        byte[] bytes = Files.readAllBytes(file);
+        ex.getResponseHeaders().set("Content-Type", contentType(file.getFileName().toString()));
+        ex.getResponseHeaders().set("X-Content-Type-Options", "nosniff");
+        ex.sendResponseHeaders(200, bytes.length);
+        try (OutputStream out = ex.getResponseBody()) {
+            out.write(bytes);
+        }
+    }
+
     private static String contentType(String name) {
         if (name.endsWith(".html")) return "text/html; charset=utf-8";
         if (name.endsWith(".js")) return "text/javascript; charset=utf-8";
