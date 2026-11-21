@@ -92,7 +92,20 @@ public final class ProgressStore {
             }
         }
 
-
+        Map<String, Object> byParam = new LinkedHashMap<>();
+        String focus = null;
+        int most = 0;
+        for (String p : PARAMS) {
+            int[] st = stats.get(p);
+            Map<String, Object> pm = new LinkedHashMap<>();
+            pm.put("averageScore", st[0] == 0 ? null : (Object) Math.round((double) st[1] / st[0]));
+            pm.put("mistakes", st[2]);
+            byParam.put(p, pm);
+            if (st[2] > most) {
+                most = st[2];
+                focus = p;
+            }
+        }
 
         List<Object> recommended = new ArrayList<>();
         failsBySign.entrySet().stream()
@@ -101,6 +114,7 @@ public final class ProgressStore {
                 .forEach(e -> {
                     Map<String, Object> m = new LinkedHashMap<>();
                     m.put("signId", e.getKey());
+                    m.put("name", signName(catalogue, e.getKey()));
                     m.put("incorrectAttempts", e.getValue());
                     recommended.add(m);
                 });
@@ -114,6 +128,7 @@ public final class ProgressStore {
                     String[] parts = e.getKey().split("\\|");
                     Map<String, Object> m = new LinkedHashMap<>();
                     m.put("signId", parts[0]);
+                    m.put("name", signName(catalogue, parts[0]));
                     m.put("parameter", parts[1]);
                     m.put("count", e.getValue());
                     repeated.add(m);
@@ -124,6 +139,7 @@ public final class ProgressStore {
             Map<String, Object> a = Json.asMap(attempts.get(i));
             Map<String, Object> m = new LinkedHashMap<>();
             m.put("signId", a.get("signId"));
+            m.put("name", signName(catalogue, String.valueOf(a.get("signId"))));
             m.put("at", a.get("at"));
             m.put("overall", a.get("overall"));
             m.put("correct", a.get("correct"));
@@ -133,6 +149,9 @@ public final class ProgressStore {
         Map<String, Object> out = new LinkedHashMap<>();
         out.put("attempts", attempts.size());
         out.put("correct", correct);
+        out.put("byParameter", byParam);
+        out.put("focus", focus);
+        out.put("advice", advice(attempts.isEmpty(), focus, recommended));
         out.put("recommendedSigns", recommended);
         out.put("recurringMistakes", repeated);
         out.put("recent", recent);
@@ -147,7 +166,24 @@ public final class ProgressStore {
         return removed;
     }
 
+    private static String signName(SignCatalogue catalogue, String id) {
+        return catalogue.find(id).map(SignCatalogue.Sign::name).orElse(id);
+    }
 
+    private static String advice(boolean none, String focus, List<Object> recommended) {
+        if (none) {
+            return "Practise a sign to get your first feedback.";
+        }
+        if (focus == null) {
+            return "No recurring mistakes yet. Keep practising to build a clearer picture.";
+        }
+        String text = "Focus on " + LABELS.get(focus) + " next.";
+        if (!recommended.isEmpty()) {
+            Map<String, Object> first = Json.asMap(recommended.get(0));
+            text += " Start with " + first.get("name") + ".";
+        }
+        return text;
+    }
 
     private void save() throws IOException {
         Path tmp = file.resolveSibling(file.getFileName() + ".tmp");
