@@ -1,0 +1,607 @@
+{
+  "signs": [
+    {
+      "id": "drink",
+      "name": "drink",
+      "category": "Food & Drinks",
+      "difficulty": "Beginner",
+      "description": "drink — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=Rc51NXuyIag"
+    },
+    {
+      "id": "water",
+      "name": "water",
+      "category": "Food & Drinks",
+      "difficulty": "Beginner",
+      "description": "water — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=Rc51NXuyIag"
+    },
+    {
+      "id": "coffee",
+      "name": "coffee",
+      "category": "Food & Drinks",
+      "difficulty": "Beginner",
+      "description": "coffee — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=Rc51NXuyIag"
+    },
+    {
+      "id": "tea",
+      "name": "tea",
+      "category": "Food & Drinks",
+      "difficulty": "Beginner",
+      "description": "tea — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=Rc51NXuyIag"
+    },
+    {
+      "id": "green-tea",
+      "name": "green tea",
+      "category": "Food & Drinks",
+      "difficulty": "Beginner",
+      "description": "green tea — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=Rc51NXuyIag"
+    },
+    {
+      "id": "tea-milk",
+      "name": "tea milk",
+      "category": "Food & Drinks",
+      "difficulty": "Beginner",
+      "description": "tea milk — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=Rc51NXuyIag"
+    },
+    {
+      "id": "salaam-alaikum",
+      "name": "Salaam Alaikum",
+      "category": "Greetings",
+      "difficulty": "Beginner",
+      "description": "Salaam Alaikum — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=XVtU5dtnkQU"
+    },
+    {
+      "id": "how-are-you",
+      "name": "How are you?",
+      "category": "Greetings",
+      "difficulty": "Beginner",
+      "description": "How are you? — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=XVtU5dtnkQU"
+    },
+    {
+      "id": "fine",
+      "name": "Fine",
+      "category": "Greetings",
+      "difficulty": "Beginner",
+      "description": "Fine — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=XVtU5dtnkQU"
+    },
+    {
+      "id": "name",
+      "name": "Name",
+      "category": "Personal Information",
+      "difficulty": "Beginner",
+      "description": "Name — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=jtFsC8Pr8B8"
+    },
+    {
+      "id": "last-name",
+      "name": "Last Name",
+      "category": "Personal Information",
+      "difficulty": "Beginner",
+      "description": "Last Name — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=jtFsC8Pr8B8"
+    },
+    {
+      "id": "date-of-birth",
+      "name": "Date of Birth",
+      "category": "Personal Information",
+      "difficulty": "Beginner",
+      "description": "Date of Birth — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=jtFsC8Pr8B8"
+    },
+    {
+      "id": "address",
+      "name": "Address",
+      "category": "Personal Information",
+      "difficulty": "Beginner",
+      "description": "Address — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=jtFsC8Pr8B8"
+    },
+    {
+      "id": "good-morning",
+      "name": "Good Morning",
+      "category": "Greetings",
+      "difficulty": "Beginner",
+      "description": "Good Morning — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=7XvFLoIgwdo"
+    },
+    {
+      "id": "good-evening",
+      "name": "Good Evening",
+      "category": "Greetings",
+      "difficulty": "Beginner",
+      "description": "Good Evening — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=7XvFLoIgwdo"
+    },
+    {
+      "id": "abu-dhabi",
+      "name": "Abu Dhabi",
+      "category": "UAE Places",
+      "difficulty": "Beginner",
+      "description": "Abu Dhabi — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=GwMOAeE1eP4"
+    },
+    {
+      "id": "dubai",
+      "name": "Dubai",
+      "category": "UAE Places",
+      "difficulty": "Beginner",
+      "description": "Dubai — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=GwMOAeE1eP4"
+    },
+    {
+      "id": "sharjah",
+      "name": "Sharjah",
+      "category": "UAE Places",
+      "difficulty": "Beginner",
+      "description": "Sharjah — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=GwMOAeE1eP4"
+    },
+    {
+      "id": "ajman",
+      "name": "Ajman",
+      "category": "UAE Places",
+      "difficulty": "Beginner",
+      "description": "Ajman — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=GwMOAeE1eP4"
+    },
+    {
+      "id": "umm-al-qaiwain",
+      "name": "Umm Al Qaiwain",
+      "category": "UAE Places",
+      "difficulty": "Beginner",
+      "description": "Umm Al Qaiwain — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=GwMOAeE1eP4"
+    },
+    {
+      "id": "ras-al-khaimah",
+      "name": "Ras Al Khaimah",
+      "category": "UAE Places",
+      "difficulty": "Beginner",
+      "description": "Ras Al Khaimah — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=GwMOAeE1eP4"
+    },
+    {
+      "id": "fujairah",
+      "name": "Fujairah",
+      "category": "UAE Places",
+      "difficulty": "Beginner",
+      "description": "Fujairah — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=GwMOAeE1eP4"
+    },
+    {
+      "id": "al-ain",
+      "name": "Al Ain",
+      "category": "UAE Places",
+      "difficulty": "Beginner",
+      "description": "Al Ain — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=GwMOAeE1eP4"
+    },
+    {
+      "id": "school",
+      "name": "School",
+      "category": "Education",
+      "difficulty": "Beginner",
+      "description": "School — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=IrBOvrjEoU8"
+    },
+    {
+      "id": "college",
+      "name": "College",
+      "category": "Education",
+      "difficulty": "Beginner",
+      "description": "College — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=IrBOvrjEoU8"
+    },
+    {
+      "id": "university",
+      "name": "University",
+      "category": "Education",
+      "difficulty": "Beginner",
+      "description": "University — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=IrBOvrjEoU8"
+    },
+    {
+      "id": "saturday",
+      "name": "Saturday",
+      "category": "Days of the Week",
+      "difficulty": "Beginner",
+      "description": "Saturday — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=I6wFoSV9F08"
+    },
+    {
+      "id": "sunday",
+      "name": "Sunday",
+      "category": "Days of the Week",
+      "difficulty": "Beginner",
+      "description": "Sunday — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=I6wFoSV9F08"
+    },
+    {
+      "id": "monday",
+      "name": "Monday",
+      "category": "Days of the Week",
+      "difficulty": "Beginner",
+      "description": "Monday — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=I6wFoSV9F08"
+    },
+    {
+      "id": "tuesday",
+      "name": "Tuesday",
+      "category": "Days of the Week",
+      "difficulty": "Beginner",
+      "description": "Tuesday — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=I6wFoSV9F08"
+    },
+    {
+      "id": "wednesday",
+      "name": "Wednesday",
+      "category": "Days of the Week",
+      "difficulty": "Beginner",
+      "description": "Wednesday — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=I6wFoSV9F08"
+    },
+    {
+      "id": "thursday",
+      "name": "Thursday",
+      "category": "Days of the Week",
+      "difficulty": "Beginner",
+      "description": "Thursday — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=I6wFoSV9F08"
+    },
+    {
+      "id": "friday",
+      "name": "Friday",
+      "category": "Days of the Week",
+      "difficulty": "Beginner",
+      "description": "Friday — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=I6wFoSV9F08"
+    },
+    {
+      "id": "work",
+      "name": "Work",
+      "category": "Work",
+      "difficulty": "Beginner",
+      "description": "Work — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=OT74lJ0cgl0"
+    },
+    {
+      "id": "busy",
+      "name": "Busy",
+      "category": "Work",
+      "difficulty": "Beginner",
+      "description": "Busy — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=OT74lJ0cgl0"
+    },
+    {
+      "id": "meeting",
+      "name": "Meeting",
+      "category": "Work",
+      "difficulty": "Beginner",
+      "description": "Meeting — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=OT74lJ0cgl0"
+    },
+    {
+      "id": "conference",
+      "name": "Conference",
+      "category": "Work",
+      "difficulty": "Beginner",
+      "description": "Conference — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=OT74lJ0cgl0"
+    },
+    {
+      "id": "passport",
+      "name": "Passport",
+      "category": "Identity Documents",
+      "difficulty": "Beginner",
+      "description": "Passport — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=3lXM-arvR8k"
+    },
+    {
+      "id": "family-book",
+      "name": "Family Book",
+      "category": "Identity Documents",
+      "difficulty": "Beginner",
+      "description": "Family Book — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=3lXM-arvR8k"
+    },
+    {
+      "id": "id-card",
+      "name": "ID Card",
+      "category": "Identity Documents",
+      "difficulty": "Beginner",
+      "description": "ID Card — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=3lXM-arvR8k"
+    },
+    {
+      "id": "home",
+      "name": "Home",
+      "category": "Places",
+      "difficulty": "Beginner",
+      "description": "Home — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=zL1u-2XiIRg"
+    },
+    {
+      "id": "apartment",
+      "name": "Apartment",
+      "category": "Places",
+      "difficulty": "Beginner",
+      "description": "Apartment — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=zL1u-2XiIRg"
+    },
+    {
+      "id": "hotel",
+      "name": "Hotel",
+      "category": "Places",
+      "difficulty": "Beginner",
+      "description": "Hotel — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=zL1u-2XiIRg"
+    },
+    {
+      "id": "sick",
+      "name": "Sick",
+      "category": "Health",
+      "difficulty": "Beginner",
+      "description": "Sick — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=SgJORoXzodU"
+    },
+    {
+      "id": "tired",
+      "name": "Tired",
+      "category": "Health",
+      "difficulty": "Beginner",
+      "description": "Tired — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=SgJORoXzodU"
+    },
+    {
+      "id": "pain",
+      "name": "Pain",
+      "category": "Health",
+      "difficulty": "Beginner",
+      "description": "Pain — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=SgJORoXzodU"
+    },
+    {
+      "id": "health",
+      "name": "Health",
+      "category": "Health",
+      "difficulty": "Beginner",
+      "description": "Health — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=SgJORoXzodU"
+    },
+    {
+      "id": "new",
+      "name": "New",
+      "category": "Age & Origin",
+      "difficulty": "Beginner",
+      "description": "New — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=JBmOqaU1K3M"
+    },
+    {
+      "id": "old",
+      "name": "Old",
+      "category": "Age & Origin",
+      "difficulty": "Beginner",
+      "description": "Old — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=JBmOqaU1K3M"
+    },
+    {
+      "id": "origin",
+      "name": "Origin",
+      "category": "Age & Origin",
+      "difficulty": "Beginner",
+      "description": "Origin — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=JBmOqaU1K3M"
+    },
+    {
+      "id": "used",
+      "name": "Used",
+      "category": "Age & Origin",
+      "difficulty": "Beginner",
+      "description": "Used — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=JBmOqaU1K3M"
+    },
+    {
+      "id": "when",
+      "name": "When",
+      "category": "Time",
+      "difficulty": "Beginner",
+      "description": "When — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=BOxqB6pyTLI"
+    },
+    {
+      "id": "today",
+      "name": "Today",
+      "category": "Time",
+      "difficulty": "Beginner",
+      "description": "Today — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=BOxqB6pyTLI"
+    },
+    {
+      "id": "tomorrow",
+      "name": "Tomorrow",
+      "category": "Time",
+      "difficulty": "Beginner",
+      "description": "Tomorrow — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=BOxqB6pyTLI"
+    },
+    {
+      "id": "yesterday",
+      "name": "Yesterday",
+      "category": "Time",
+      "difficulty": "Beginner",
+      "description": "Yesterday — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=BOxqB6pyTLI"
+    },
+    {
+      "id": "near",
+      "name": "Near",
+      "category": "Descriptions",
+      "difficulty": "Beginner",
+      "description": "Near — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=r0xStaFb68o"
+    },
+    {
+      "id": "far",
+      "name": "Far",
+      "category": "Descriptions",
+      "difficulty": "Beginner",
+      "description": "Far — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=r0xStaFb68o"
+    },
+    {
+      "id": "long",
+      "name": "Long",
+      "category": "Descriptions",
+      "difficulty": "Beginner",
+      "description": "Long — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=r0xStaFb68o"
+    },
+    {
+      "id": "short",
+      "name": "Short",
+      "category": "Descriptions",
+      "difficulty": "Beginner",
+      "description": "Short — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=r0xStaFb68o"
+    },
+    {
+      "id": "restroom",
+      "name": "Restroom",
+      "category": "Daily Activities",
+      "difficulty": "Beginner",
+      "description": "Restroom — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=LnyexQFMGjc"
+    },
+    {
+      "id": "bath",
+      "name": "Bath",
+      "category": "Daily Activities",
+      "difficulty": "Beginner",
+      "description": "Bath — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=LnyexQFMGjc"
+    },
+    {
+      "id": "wash-hands",
+      "name": "Wash Hands",
+      "category": "Daily Activities",
+      "difficulty": "Beginner",
+      "description": "Wash Hands — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=LnyexQFMGjc"
+    },
+    {
+      "id": "clean",
+      "name": "Clean",
+      "category": "Daily Activities",
+      "difficulty": "Beginner",
+      "description": "Clean — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=LnyexQFMGjc"
+    },
+    {
+      "id": "right",
+      "name": "Right",
+      "category": "Evaluation",
+      "difficulty": "Beginner",
+      "description": "Right — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=ZZFRsLLvhxk"
+    },
+    {
+      "id": "mistake",
+      "name": "Mistake",
+      "category": "Evaluation",
+      "difficulty": "Beginner",
+      "description": "Mistake — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=ZZFRsLLvhxk"
+    },
+    {
+      "id": "successful",
+      "name": "Successful",
+      "category": "Evaluation",
+      "difficulty": "Beginner",
+      "description": "Successful — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=ZZFRsLLvhxk"
+    },
+    {
+      "id": "fail",
+      "name": "Fail",
+      "category": "Evaluation",
+      "difficulty": "Beginner",
+      "description": "Fail — Emirati Sign Language sign. Reference source video is linked below.",
+      "steps": [],
+      "sourceVideoUrl": "https://www.youtube.com/watch?v=ZZFRsLLvhxk"
+    }
+  ]
+}
